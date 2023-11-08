@@ -21,12 +21,17 @@ To play the Nim game with different strategies, you can modify the `strategy` va
 - `pure_random`: Chooses a completely random move.
 - `gabriele`: Picks the maximum possible number of objects from the lowest row.
 - `adaptive`: Adapts its parameters based on a predefined genome.
-- `adaptive_alternative`: An alternative implementation of the adaptive strategy.
-- `adaptive_dynamic`: Dynamically adjusts its parameters based on the percentage of empty rows.
+- `adaptive_alternative`: An alternative implementation of the adaptive strategy. #Instead of explicitly computing these values, the     strategy randomly selects a non-empty row and make a move based on the chosen row. This simplifies the strategy while still incorporating the adaptive parameter.
+- `adaptive_dynamic`: Dynamically adjusts its parameters based on the percentage of empty rows. 
 
 ## Evolutionary Strategy
 
 The repository includes an example of an evolutionary strategy in the `evolutionary_strategy.py` file. This strategy evolves over generations, and the best strategy is selected based on its performance in playing the game.
+Extract the "love_small" parameter from the genome.
+Calculate some values ​​based on the current state of the game and count the number of active rows, i.e. the number of rows still containing objects.   
+Find the shortest row, i.e. the one with the fewest objects with he lambda function, that is used as the key to determine the MINIMUM/MAXIMUN based on the number of objects.
+Find the longest line, i.e. the one with the most objects.
+If "love_small" is greater than 0.5, choose the smallest move on the shortest row or activate row. Otherwise, choose the largest move on the longest row.
 
 ## Analysis
 
